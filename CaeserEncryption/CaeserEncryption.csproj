@@ -5,11 +5,12 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <SignAssembly>True</SignAssembly>
   </PropertyGroup>
 
   <ItemGroup>
     <Reference Include="NoPandaCode.ApplicationEnvironment">
-      <HintPath>C:\Users\paul\Downloads\NoPandaCode.ApplicationEnvironment.dll</HintPath>
+      <HintPath>..\Lib\NoPandaCode.ApplicationEnvironment.dll</HintPath>
     </Reference>
   </ItemGroup>
 

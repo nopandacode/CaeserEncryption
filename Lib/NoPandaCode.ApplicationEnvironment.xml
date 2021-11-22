@@ -1,0 +1,204 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NoPandaCode.ApplicationEnvironment</name>
+    </assembly>
+    <members>
+        <member name="T:NoPandaCode.ApplicationEnvironment.ApplicationAttribute">
+            <summary>
+            The <see cref="T:NoPandaCode.ApplicationEnvironment.ApplicationAttribute"/> allows you to mark your type as a app.
+            </summary>
+        </member>
+        <member name="P:NoPandaCode.ApplicationEnvironment.ApplicationAttribute.Name">
+            <summary>
+            The name of the application.
+            </summary>
+        </member>
+        <member name="P:NoPandaCode.ApplicationEnvironment.ApplicationAttribute.Description">
+            <summary>
+            The description of the application.
+            </summary>
+        </member>
+        <member name="T:NoPandaCode.ApplicationEnvironment.ApplicationInfo">
+            <summary>
+            The <see cref="T:NoPandaCode.ApplicationEnvironment.ApplicationInfo"/> contains all information about a app.
+            </summary>
+        </member>
+        <member name="P:NoPandaCode.ApplicationEnvironment.ApplicationInfo.Name">
+            <summary>
+            The name of the app.
+            </summary>
+        </member>
+        <member name="P:NoPandaCode.ApplicationEnvironment.ApplicationInfo.Description">
+            <summary>
+            The description of the app.
+            </summary>
+        </member>
+        <member name="P:NoPandaCode.ApplicationEnvironment.ApplicationInfo.Commands">
+            <summary>
+            The commands of the app.
+            </summary>
+        </member>
+        <member name="M:NoPandaCode.ApplicationEnvironment.ApplicationInfo.FromType``1">
+            <summary>
+            Create a <see cref="T:NoPandaCode.ApplicationEnvironment.ApplicationInfo"/> from the app type.
+            </summary>
+            <typeparam name="TApp">The type of the app.</typeparam>
+            <returns>A <see cref="T:NoPandaCode.ApplicationEnvironment.ApplicationInfo"/>. Null if the app type has no <see cref="T:NoPandaCode.ApplicationEnvironment.ApplicationAttribute"/>.</returns>
+        </member>
+        <member name="M:NoPandaCode.ApplicationEnvironment.ApplicationInfo.FromType(System.Type)">
+            <summary>
+            Create a <see cref="T:NoPandaCode.ApplicationEnvironment.ApplicationInfo"/> from the app type.
+            </summary>
+            <param name="appType">The type of the app.</param>
+            <returns>A <see cref="T:NoPandaCode.ApplicationEnvironment.ApplicationInfo"/>. Null if the app type has no <see cref="T:NoPandaCode.ApplicationEnvironment.ApplicationAttribute"/>.</returns>
+        </member>
+        <member name="T:NoPandaCode.ApplicationEnvironment.AppRunner">
+            <summary>
+            The <see cref="T:NoPandaCode.ApplicationEnvironment.AppRunner"/> can run applications based on attributes.
+            </summary>
+        </member>
+        <member name="T:NoPandaCode.ApplicationEnvironment.AppRunner.AppRunnerResult">
+            <summary>
+            The <see cref="T:NoPandaCode.ApplicationEnvironment.AppRunner.AppRunnerResult"/> is a enum that contains all return codes when you ran a application.
+            </summary>
+        </member>
+        <member name="F:NoPandaCode.ApplicationEnvironment.AppRunner.AppRunnerResult.SuccessfullyExecuted">
+            <summary>
+            The app was successfully executed.
+            </summary>
+        </member>
+        <member name="F:NoPandaCode.ApplicationEnvironment.AppRunner.AppRunnerResult.AppIsNull">
+            <summary>
+            The app type is null.
+            </summary>
+        </member>
+        <member name="F:NoPandaCode.ApplicationEnvironment.AppRunner.AppRunnerResult.InstanceIsNull">
+            <summary>
+            The instance of the app is null.
+            </summary>
+        </member>
+        <member name="F:NoPandaCode.ApplicationEnvironment.AppRunner.AppRunnerResult.CommandNotFound">
+            <summary>
+            The command was not found and the app has no default command.
+            </summary>
+        </member>
+        <member name="F:NoPandaCode.ApplicationEnvironment.AppRunner.AppRunnerResult.ParameterError">
+            <summary>
+            Either the parameter type is incorrect or you sent too much/less arguments.
+            </summary>
+        </member>
+        <member name="F:NoPandaCode.ApplicationEnvironment.AppRunner.AppRunnerResult.ExecutionError">
+            <summary>
+            There was an error at the execution.
+            </summary>
+        </member>
+        <member name="F:NoPandaCode.ApplicationEnvironment.AppRunner.AppRunnerResult.NullError">
+            <summary>
+            Contains all null-errors.
+            </summary>
+        </member>
+        <member name="F:NoPandaCode.ApplicationEnvironment.AppRunner.AppRunnerResult.Error">
+            <summary>
+            Contains all errors.
+            </summary>
+        </member>
+        <member name="M:NoPandaCode.ApplicationEnvironment.AppRunner.Run``1(System.String,System.String[])">
+            <summary>
+            Run a application with args.
+            </summary>
+            <typeparam name="TApp">The app type</typeparam>
+            <param name="command">The command that you want to execute. Leave it null to run the default command.</param>
+            <param name="args">The arguments for the command.</param>
+            <returns>A <see cref="T:NoPandaCode.ApplicationEnvironment.AppRunner.AppRunnerResult"/></returns>
+        </member>
+        <member name="M:NoPandaCode.ApplicationEnvironment.AppRunner.Run(System.Type,System.String,System.String[])">
+            <summary>
+            Run a application with args.
+            </summary>
+            <param name="appType">The app type</param>
+            <param name="command">The command that you want to execute. Leave it null to run the default command.</param>
+            <param name="args">The arguments for the command.</param>
+            <returns>A <see cref="T:NoPandaCode.ApplicationEnvironment.AppRunner.AppRunnerResult"/></returns>
+        </member>
+        <member name="T:NoPandaCode.ApplicationEnvironment.Command">
+            <summary>
+            A <see cref="T:NoPandaCode.ApplicationEnvironment.Command"/> helper class.
+            </summary>
+        </member>
+        <member name="P:NoPandaCode.ApplicationEnvironment.Command.Name">
+            <summary>
+            The name of the command.
+            </summary>
+        </member>
+        <member name="P:NoPandaCode.ApplicationEnvironment.Command.Description">
+            <summary>
+            The description of the command.
+            </summary>
+        </member>
+        <member name="P:NoPandaCode.ApplicationEnvironment.Command.Type">
+            <summary>
+            The type of the command.
+            </summary>
+        </member>
+        <member name="P:NoPandaCode.ApplicationEnvironment.Command.HasParameters">
+            <summary>
+            Returns true if the command has parameters.
+            </summary>
+        </member>
+        <member name="P:NoPandaCode.ApplicationEnvironment.Command.ParameterLength">
+            <summary>
+            Returns the amount of parameters of the command.
+            </summary>
+        </member>
+        <member name="M:NoPandaCode.ApplicationEnvironment.Command.Run(System.Object,System.Object[])">
+            <summary>
+            Invoke the command with parameters.
+            </summary>
+            <param name="instance">A instance from the app.</param>
+            <param name="parameters">The parameters to the command. Leave it null to send no parameters.</param>
+        </member>
+        <member name="M:NoPandaCode.ApplicationEnvironment.Command.FromMethodInfo(System.Reflection.MethodInfo)">
+            <summary>
+            Create a <see cref="T:NoPandaCode.ApplicationEnvironment.Command"/> from a <see cref="T:System.Reflection.MethodInfo"/>.
+            </summary>
+            <param name="methodInfo">The <see cref="T:System.Reflection.MethodInfo"/> from the command.</param>
+            <returns>Returns the command. Null if the method has no <see cref="T:NoPandaCode.ApplicationEnvironment.CommandAttribute"/>.</returns>
+        </member>
+        <member name="T:NoPandaCode.ApplicationEnvironment.CommandType">
+            <summary>
+            A type of command.
+            </summary>
+        </member>
+        <member name="F:NoPandaCode.ApplicationEnvironment.CommandType.DefaultCommand">
+            <summary>
+            The default command.
+            </summary>
+        </member>
+        <member name="F:NoPandaCode.ApplicationEnvironment.CommandType.NormalCommand">
+            <summary>
+            The normal command.
+            </summary>
+        </member>
+        <member name="T:NoPandaCode.ApplicationEnvironment.CommandAttribute">
+            <summary>
+            The <see cref="T:NoPandaCode.ApplicationEnvironment.CommandAttribute"/> allows you to register a command to a app.
+            </summary>
+        </member>
+        <member name="P:NoPandaCode.ApplicationEnvironment.CommandAttribute.Description">
+            <summary>
+            The description of the command.
+            </summary>
+        </member>
+        <member name="P:NoPandaCode.ApplicationEnvironment.CommandAttribute.Name">
+            <summary>
+            The name of the command. Leave it null to take the name from the method.
+            </summary>
+        </member>
+        <member name="P:NoPandaCode.ApplicationEnvironment.CommandAttribute.Type">
+            <summary>
+            The type of the command.
+            </summary>
+        </member>
+    </members>
+</doc>
